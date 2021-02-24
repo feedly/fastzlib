@@ -67,13 +67,20 @@ public class FastDeflater {
     public static final int FULL_FLUSH = 3;
 
     static {
+        String libzName = System.getProperty("libz.name");
         if(System.getProperty("os.name").toLowerCase().startsWith("mac")) {
             System.load(System.getProperty("user.home") + "/.m2/repository/com/bluedevel/fastzlib-dylib/1.0-SNAPSHOT/fastzlib-dylib-1.0-SNAPSHOT.dylib");
-            initIDs("libz.dylib");
+            if(libzName == null) {
+                libzName = "libz.dylib";
+            }
         } else {
+            if(libzName == null) {
+                libzName = "libz.so";
+            }
             System.load(System.getProperty("user.home") + "/fastzlib/fastzlib-so-1.0-SNAPSHOT.so");
-            initIDs("libz.so");
         }
+        System.out.println("loading libz from " + libzName);
+        initIDs(libzName);
     }
 
     public FastDeflater(int level, boolean nowrap) {
