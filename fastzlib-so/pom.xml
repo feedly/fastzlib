@@ -8,10 +8,7 @@
     <artifactId>fastzlib-so</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>fastzlib-linux</name>
-    <packaging>dylib</packaging>
-    <properties>
-        <lib.name>libfastzlib</lib.name>
-    </properties>
+    <packaging>so</packaging>
     <dependencies>
         <dependency>
             <groupId>com.bluedevel</groupId>
@@ -36,7 +33,7 @@
                     </sources>
                     <compilerProvider>generic</compilerProvider>
                     <compilerExecutable>gcc</compilerExecutable>
-                    <compilerStartOptions>-I ${JAVA_HOME}/include -I ${JAVA_HOME}/include/linux</compilerStartOptions>
+                    <compilerStartOptions>-fPIC -I ${JAVA_HOME}/include -I ${JAVA_HOME}/include/linux</compilerStartOptions>
                     <linkerStartOptions>-shared</linkerStartOptions>
                 </configuration>
             </plugin>

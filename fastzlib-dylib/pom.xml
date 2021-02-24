@@ -9,9 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <name>fastzlib-mac</name>
     <packaging>dylib</packaging>
-    <properties>
-        <lib.name>libfastzlib</lib.name>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>com.bluedevel</groupId>
