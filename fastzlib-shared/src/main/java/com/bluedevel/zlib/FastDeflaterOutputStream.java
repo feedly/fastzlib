@@ -282,4 +282,8 @@ public class FastDeflaterOutputStream extends FilterOutputStream {
         }
         out.flush();
     }
+
+    public FastDeflater getDeflater() {
+        return def;
+    }
 }
